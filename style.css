@@ -1,0 +1,332 @@
+<style>
+    * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+}
+
+header {
+    text-align: center;
+    padding: 2rem;
+    background-color:black;
+    color:pink;
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+
+
+
+.oval-button {
+    padding: 5px 30px;
+    font-size: 16px;
+    margin-top: 40px;
+    margin-left: 20px;
+    color: rgb(236, 238, 238);
+    background-color:black;
+    border: none;
+    border-radius: 30px; /* Controls the oval shape */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 8px;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    margin-top: 5px;
+    font-size: 16px;
+    border-radius: 25px 0 0 25px;
+}
+
+.search-button {
+    border: none;
+    outline: none;
+    background-color: white;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 0 25px 25px 0;
+    transition: background-color 0.3s ease;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.search-button:hover {
+    background-color: white;
+}
+.toolbar{
+  display:flex;
+  align-items: center;
+  gap:20px;
+  padding-left: 50px;
+  padding-top: 20px;
+  padding-bottom: 30px;
+ 
+}
+.notification-bell {
+    position: relative;
+    font-size: 24px;
+    margin-left:35px;
+    margin-right: 20px;
+    margin-top: 40px;
+    cursor: pointer;
+}
+
+.bell-icon {
+    color: pink;
+}
+
+.notification-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #FF0000;
+    color: #fff;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 20px;
+    min-height: 20px;
+}
+.message-icon {
+    position: relative;
+    font-size: 24px;
+    cursor: pointer;
+    margin-left:35px;
+    margin-right: 20px;
+    margin-top: 40px;
+}
+
+.icon {
+    color: white;
+}
+
+.notification-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #FF0000;
+    color: #fff;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 20px;
+    min-height: 20px;
+}
+.profile-icon {
+    width: 50px;
+    height: 50px;
+    margin-left:35px;
+    margin-right: 20px;
+    margin-top: 35px;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+
+.profile-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.text {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.image-section {
+    padding: 0 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 10vh;
+    align-items: center;
+    padding-left: 50px;
+}
+
+.gallery {
+    display: -webkit-column;
+    display: -ms-column;
+    display: column;
+    align-items: center;
+    column-count: 4;
+    column-gap: 10px; 
+    -webkit-column-gap: 10px;
+    -ms-column-gap: 10px; 
+}
+
+.gallery-item {
+    overflow: hidden;
+    margin-bottom: 10px; 
+    border-radius: 12px; 
+    background-color: #f9f9f9;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    
+    display: block;
+    border-radius: 12px; 
+}
+.gallery-item:hover img {
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Overlay buttons */
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.gallery-item:hover .overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Button styles */
+button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.8); /* Darker on hover */
+}
+
+@media (max-width: 768px) {
+  .images {
+      column-count: 3; 
+      column-gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .images {
+      column-count: 2; 
+      column-gap: 8px;
+  }
+}
+.save-button{
+    
+  background-color: #FF0000;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 50px;
+  position: absolute;
+  top: 10px; /* Adjust position */
+  right: 10px;
+  display: none; /* Hide initially */
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.image-container:hover {
+  display: flex; /* Show on hover */
+  align-items: center;
+  justify-content: center;
+} 
+.Save-button {
+  background-color: #FF0000;
+  color: red;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 50px;
+  position: absolute;
+  top: 10px; /* Adjust position */
+  right: 10px;
+  display: none; /* Hide initially */
+  cursor: pointer;
+  box-shadow: 0px 4px 8px red;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-container:hover .Save-button {
+  display: flex; /* Show on hover */
+ 
+}
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+  font-size: 14px;
+  position: relative; /* Keep footer fixed at the bottom */
+  bottom: 0;
+  width: 100%;
+}
+
+.footer p {
+  margin: 0;
+}
+
+
+   </style>
